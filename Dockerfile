@@ -8,7 +8,6 @@ ADD . /usr/opt/web-service/
 
 WORKDIR /usr/opt/web-service
 
-RUN ifconfig
 RUN yarn config set registry https://registry.npm.taobao.org/ \
   && yarn \
   && npm run build \
