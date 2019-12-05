@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common'
 import { AppController } from './app.controller'
-import { AppService } from './app.service'
 import { ConfigModule } from './modules/config/config.module'
 import { join } from 'path'
 import { ConsulModule } from './modules/consul/consul.module'
@@ -11,6 +10,6 @@ import { ConsulModule } from './modules/consul/consul.module'
     ConsulModule.forRoot()
   ],
   controllers: [AppController],
-  providers: [AppService]
+  providers: []
 })
 export class AppModule {}

@@ -1,12 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, Render } from '@nestjs/common'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor() {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Render('index.hbs')
+  root() {
+    // 读取网页文件
+    const htmlContent = readFileSync(
+      join(__dirname, '..', 'public', 'index.html')
+    )
+    // 加载网页文件
+    return { 'html-content': htmlContent }
   }
 }
