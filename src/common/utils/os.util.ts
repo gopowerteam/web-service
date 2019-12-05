@@ -1,13 +1,13 @@
-import * as os from 'os';
+import * as os from 'os'
 
 export const getIPAddress = () => {
-  const interfaces = os.networkInterfaces();
+  const interfaces = os.networkInterfaces()
   for (const devName in interfaces) {
     if (!interfaces.hasOwnProperty(devName)) {
-      continue;
+      continue
     }
 
-    const iface = interfaces[devName];
+    const iface = interfaces[devName]
 
     for (const alias of iface) {
       if (
@@ -15,8 +15,8 @@ export const getIPAddress = () => {
         alias.address !== '127.0.0.1' &&
         !alias.internal
       ) {
-        return alias.address;
+        return alias.address
       }
     }
   }
-};
+}
