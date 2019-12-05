@@ -4,11 +4,9 @@ import { join } from 'path'
 
 @Controller()
 export class AppController {
-  constructor() {}
-
   @Get()
   @Render('index.hbs')
-  root() {
+  private root() {
     // 读取网页文件
     const htmlContent = readFileSync(
       join(__dirname, '..', 'public', 'index.html')
